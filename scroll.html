@@ -5,8 +5,8 @@
     <title>scroll</title>
   </head>
   <body>
-    <h1 id='position' style="background: white; position:fixed; top: 0;">
-      12%
+    <h1 id='fixed-scroll-depth-indicator' style="background: white; position:fixed; top: 10px; left: 10px">
+      0%
     </h1>
     <h1>test</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -60,5 +60,34 @@
 
     <h1>shit</h1>
     <script type="text/javascript" src='scroll.js'></script>
+    <script type="text/javascript">
+      ScrollTrack.bindEvents();
+
+      var h1 = document.getElementById('fixed-scroll-depth-indicator')
+
+      ScrollTrack.subscribeCallback(0.25, function (){
+        h1.innerHTML = '25%'
+        console.log('you are already 25% through')
+      })
+
+      ScrollTrack.subscribeCallback(0.50, function (){
+        h1.innerHTML = '50%'
+        console.log('you are 50% through, the other half now!')
+      })
+
+      ScrollTrack.subscribeCallback(0.50, function (){
+        console.log('Call GA Event for tracking');
+      })
+
+      ScrollTrack.subscribeCallback(0.75, function (){
+        h1.innerHTML = '75%'
+        console.log('you are almost finished, keep going on!')
+      })
+
+      ScrollTrack.subscribeCallback(1.0, function (){
+        h1.innerHTML = '100%'
+        alert('you finished the page, congratz!')
+      })
+    </script>
   </body>
 </html>
