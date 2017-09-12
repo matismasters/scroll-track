@@ -18,7 +18,8 @@ No dependencies, event based, web page scroll tracking. The script sends an even
 ```js
   ScrollTrack.setTriggerEventsFraction(0.50);
 
-  // This will be sending 2 events, one when the user scrolled through 50% of page, and another when he is 100%
+  // This will be sending 2 events, one when the user scrolled through 50% of
+  // page, and another when he reaches the end of the page (100%)
 ```
 
 3 - Call the `bindEvents` function, which adds a listener to `window.onscroll`
