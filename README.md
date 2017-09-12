@@ -2,6 +2,9 @@
 
 No dependencies, event based, web page scroll tracking. The script sends an event to the subscribed callbacks when a fraction of the total window height is reached.
 
+![quick script demo](https://raw.githubusercontent.com/matismasters/scroll-track/master/demo.gif)
+
+
 ## Usage
 
 1 - Make sure you require the file to into your html document.
