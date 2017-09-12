@@ -72,8 +72,12 @@ var ScrollTrack = (function ($window, $document){
     return true;
   }
 
+  var setTriggerEventsFraction = function (value){
+    options.triggerEventsFraction = parseInt(value * 100);
+  }
+
   var subscribeCallback = function (percentage, callback){
-    var percentageString = percentage.toString();
+    var percentageString = parseInt(percentage * 100).toString();
 
     if (typeof(subscribedCallbacks[percentageString]) === 'undefined') {
       subscribedCallbacks[percentageString] = [];
@@ -101,9 +105,8 @@ var ScrollTrack = (function ($window, $document){
   createEventsPercentagesByFraction();
 
   return {
+    setTriggerEventsFraction: setTriggerEventsFraction,
     bindEvents: bindEvents,
     subscribeCallback: subscribeCallback
   }
 })(window, document)
-
-ScrollTrack.bindEvents();
