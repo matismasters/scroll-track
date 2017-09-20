@@ -63,6 +63,6 @@ For example, if you set `0.25` as the `setTriggerEventsFraction`, you could subs
 ## Keep in mind
 
 - You can subscribe as many callbacks as you want to each scroll fraction.
-- The event will ONLY be triggered ONCE. If the user scrolls upwards it will not be tracked.
+- The event will ONLY be triggered ONCE. If the user scrolls downwards and an events if fired, if the user laters scrolls upwards it will not be tracked.
 - If the user opens the page, and the window scrolls automatically to any part of the page, all the corresponding events up until that point will be triggered.
 - If the page is not scrollable no event will fire
