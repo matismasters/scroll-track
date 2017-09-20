@@ -3,21 +3,21 @@ var ScrollTrack = (function ($window, $document){
     triggerEventsFraction: 25
   }
 
-  var $body, $html;
+  var $documentElement;
   var documentHeight, windowHeight, scrollableHeight,
     eventsPercentages = [],
     triggeredEvents = [],
     subscribedCallbacks = {};
 
   var cacheDom = function (){
-    $body = $document.body,
-    $html = $document.documentElement;
+    $documentElement = $document.documentElement;
   }
 
   var calculateHeights = function (){
     documentHeight = Math.max(
-      $body.scrollHeight, $body.offsetHeight,
-      $html.clientHeight, $html.scrollHeight, $html.offsetHeight
+      $documentElement.scrollHeight, $documentElement.offsetHeight,
+      $documentElement.clientHeight, $documentElement.scrollHeight,
+      $documentElement.offsetHeight
     );
 
     windowHeight = $window.innerHeight;
@@ -34,7 +34,10 @@ var ScrollTrack = (function ($window, $document){
   }
 
   var scrolledPercentage = function (){
-    return ($body.scrollTop * 100) / scrollableHeight;
+    var scrollTop = $window.pageYOffset ||
+      $documentElement.scrollTop ||
+      document.body.scrollTop || 0;
+    return (scrollTop * 100) / scrollableHeight;
   }
 
   var triggerEvents = function (){
