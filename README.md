@@ -4,6 +4,7 @@ No dependencies, event based, web page scroll tracking. The script sends an even
 
 ![quick script demo](https://raw.githubusercontent.com/matismasters/scroll-track/master/demo.gif)
 
+You can find the JS file in `site/js/scroll.js`
 
 ## Usage
 
